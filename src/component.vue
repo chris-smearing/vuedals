@@ -232,8 +232,8 @@ export default {
     <div class="vuedals" v-show="vuedals.length" tabindex="0" @keyup.esc.prevent="handleEscapeKey($event)" @click="handleBackdropClick()">
         <div class="vuedal" v-for="(vuedal, index) in vuedals" :key="index" :class="getCssClasses(index)" @click.stop>
             <header v-if="(vuedal.title || vuedal.dismissable) && !vuedal.header">
-                <span class="title">{{ vuedal.title }}</span>
-                <a href @click.prevent="dismiss()" v-if="vuedal.dismissable" class="close">&times;</a>
+                <p class="title">{{ vuedal.title }}</p>
+                <button @click.prevent="dismiss()" v-if="vuedal.dismissable" class="close">&times;</button>
             </header>
             <header v-if="vuedal.header">
                 <component :is="vuedal.header.component" v-bind="vuedal.header.props"></component>
@@ -270,7 +270,7 @@ body.vuedal-open {
     margin: 30px 0;
     transition: all 0.6s ease;
     position: absolute;
-    left: 50%;
+    left: 49%;
     transform: translateX(-50%);
     will-change: transform;
     width: 95%;
@@ -300,13 +300,7 @@ body.vuedal-open {
     }
 
     header {
-        border-bottom: 1px solid #EEE;
-        min-height: 32px;
-        margin-bottom: 20px;
-
-        .title { font-size: 21px; font-weight: 100;}
-
-        .close { float: right; font-size: 26px; font-weight: 100; line-height: 21px; }
+        .close { cursor: pointer; }
     }
 }
 
