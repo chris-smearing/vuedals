@@ -259,8 +259,9 @@ body.vuedal-open {
     z-index: 1050;
     overflow-x: hidden;
     overflow-y: auto;
-    perspective: 500px;
     transition: opacity .4s ease;
+    display: block;
+    width: 100%;
 }
 
 .vuedal {
@@ -269,10 +270,9 @@ body.vuedal-open {
     padding: 20px;
     margin: 30px 0;
     transition: all 0.6s ease;
-    position: absolute;
-    left: 49%;
+    position: relative;
+    left: 50%;
     transform: translateX(-50%);
-    will-change: transform;
     width: 95%;
     max-width: 650px;
 
@@ -312,6 +312,5 @@ body.vuedal-open {
 .vuedal-enter .vuedal,
 .vuedal-leave-active .vuedal {
     opacity: 0;
-    transform: translateX(-50%) translateY(-30px) scale(0.95);
 }
 </style>
